@@ -1,10 +1,12 @@
 const abortMiddleware = require('./abortMiddleware');
 const checkBan = require('./checkBan');
+const checkDomainAllowed = require('./checkDomainAllowed');
 const uaParser = require('./uaParser');
 const setHeaders = require('./setHeaders');
 const loginLimiter = require('./loginLimiter');
 const validateModel = require('./validateModel');
 const requireJwtAuth = require('./requireJwtAuth');
+const requireLdapAuth = require('./requireLdapAuth');
 const uploadLimiters = require('./uploadLimiters');
 const registerLimiter = require('./registerLimiter');
 const messageLimiters = require('./messageLimiters');
@@ -17,6 +19,7 @@ const validateRegistration = require('./validateRegistration');
 const validateImageRequest = require('./validateImageRequest');
 const moderateText = require('./moderateText');
 const noIndex = require('./noIndex');
+const importLimiters = require('./importLimiters');
 
 module.exports = {
   ...uploadLimiters,
@@ -27,6 +30,7 @@ module.exports = {
   setHeaders,
   loginLimiter,
   requireJwtAuth,
+  requireLdapAuth,
   registerLimiter,
   requireLocalAuth,
   validateEndpoint,
@@ -38,4 +42,6 @@ module.exports = {
   validateModel,
   moderateText,
   noIndex,
+  ...importLimiters,
+  checkDomainAllowed,
 };
